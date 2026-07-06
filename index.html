@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivi Anand — Infrastructure Resilience & Climate Risk Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF9F6;
+    --panel:#FFFFFF;
+    --ink:#181A1E;
+    --slate:#5B6270;
+    --red:#B32133;
+    --red-deep:#7E1723;
+    --hairline:#E4DFD3;
+    --tag-bg:#F1ECE1;
+    --risk-a:#3E7C4A;
+    --risk-b:#8CA83E;
+    --risk-c:#D9A62E;
+    --risk-d:#D9772E;
+    --risk-e:#C1442E;
+    --risk-f:#7E1723;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:72px 0 40px;
+    border-bottom:1px solid var(--hairline);
+  }
+  .prepared-for{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--red-deep);
+    background:var(--tag-bg);
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:2px;
+    margin-bottom:22px;
+  }
+  h1.name{
+    font-size:40px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin:0 0 8px;
+    color:var(--ink);
+  }
+  p.role-line{
+    font-size:18px;
+    color:var(--red-deep);
+    font-weight:600;
+    margin:0 0 20px;
+  }
+  p.summary{
+    font-size:16px;
+    color:var(--slate);
+    max-width:600px;
+    margin:0 0 28px;
+  }
+  .contact-row{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--slate);
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 14px;
+  }
+  .contact-row a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--hairline);}
+  .contact-row a:hover{border-bottom-color:var(--red);}
+
+  /* ---------- RISK SCALE SIGNATURE ---------- */
+  .risk-key{
+    margin-top:34px;
+    padding-top:26px;
+    border-top:1px solid var(--hairline);
+  }
+  .risk-key-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-bottom:10px;
+  }
+  .risk-scale{
+    display:flex;
+    height:10px;
+    border-radius:2px;
+    overflow:hidden;
+    max-width:340px;
+  }
+  .risk-scale span{flex:1;}
+  .risk-scale-labels{
+    display:flex;
+    justify-content:space-between;
+    max-width:340px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--slate);
+    margin-top:6px;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  section.projects{padding:52px 0 20px;}
+  .project{
+    padding:44px 0;
+    border-bottom:1px solid var(--hairline);
+  }
+  .project:last-child{border-bottom:none;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--red-deep);
+    margin-bottom:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    display:inline-block;
+    width:16px;
+    height:2px;
+    background:var(--red);
+    margin-right:8px;
+    vertical-align:middle;
+  }
+  h2.project-title{
+    font-size:23px;
+    font-weight:700;
+    margin:0 0 6px;
+    letter-spacing:-0.005em;
+  }
+  p.project-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--slate);
+    margin:0 0 20px;
+  }
+  .project-image{
+    width:100%;
+    border-radius:4px;
+    border:1px solid var(--hairline);
+    margin-bottom:24px;
+    display:block;
+    background:var(--panel);
+  }
+  .image-placeholder{
+    width:100%;
+    min-height:150px;
+    border:1px dashed var(--hairline);
+    border-radius:4px;
+    margin-bottom:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--slate);
+    background:var(--panel);
+    text-align:center;
+    padding:20px;
+  }
+  h3.block-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin:20px 0 8px;
+  }
+  p.block-text{
+    margin:0 0 4px;
+    color:var(--ink);
+    font-size:15px;
+  }
+  .tools{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:8px;
+  }
+  .tool-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    background:var(--tag-bg);
+    color:var(--red-deep);
+    padding:4px 10px;
+    border-radius:2px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:48px 0 80px;
+    color:var(--slate);
+    font-size:14px;
+  }
+  footer a{color:var(--red-deep); text-decoration:none; border-bottom:1px solid var(--hairline);}
+  footer a:hover{border-bottom-color:var(--red);}
+
+  @media (max-width:600px){
+    header.hero{padding:48px 0 32px;}
+    h1.name{font-size:32px;}
+    .project{padding:32px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="prepared-for">Portfolio prepared for WSP — Infrastructure Resilience</div>
+    <h1 class="name">Shivi Anand</h1>
+    <p class="role-line">Quantitative Climate Risk &amp; Infrastructure Resilience</p>
+    <p class="summary">
+      GIS and climate risk analysis for infrastructure decision-making — modeling natural hazard exposure,
+      vulnerability, and probable loss across energy, building, and land-use assets in the US, UK, and abroad.
+      Five projects spanning physical climate risk modeling, flood exposure, emissions compliance analytics,
+      renewable energy siting, and remote sensing.
+    </p>
+    <div class="contact-row">
+      <span>New York, NY</span>
+      <a href="mailto:shiviana28@gmail.com">shiviana28@gmail.com</a>
+      <span>(714) 732-8421</span>
+      <a href="https://www.linkedin.com/in/shivi-anand-45b88b1a6/">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1-uvOpCDMbTnpFlFK4NPs7brK7NleumcZ/view?usp=sharing">Resume</a>
+    </div>
+
+  <section class="projects">
+    
+    <!-- PROJECT 1: LINCOLNSHIRE -->
+    <div class="project">
+      <div class="eyebrow">Asset-level Physical Climate Risk · Probabilistic Loss Modeling</div>
+      <h2 class="project-title">Physical Climate Risk Assessment — UK Residential Portfolio</h2>
+      <p class="project-meta">Climate Risk Analyst · Technical Exercise, Climate X</p>
+
+      <img class="project-image" src="images/lincolnshire-risk.png" alt="AAAL Trajectory Chart"
+        onerror="this.outerHTML='<div class=&quot;image-placeholder&quot;>Add screenshot: images/lincolnshire-risk.png<br>(e.g. loss-exceedance curve or AAL trajectory chart)</div>'">
+
+      <h3 class="block-label">Impact</h3>
+      <p class="block-text">
+        Assessed physical climate risk exposure for a ten-asset UK residential portfolio under a high-emissions
+        (SSP5-8.5) scenario, evaluating flood and windstorm hazard out to 2100 and translating platform risk
+        outputs into asset-level, investment-relevant metrics.
+      </p>
+
+      <h3 class="block-label">Approach</h3>
+      <p class="block-text">
+        Used Python to query physical climate hazard scores via the Climate X API across four hazard types —
+        river flood, surface water flood, coastal flood, and windstorm — and three return periods (1-in-100,
+        1-in-200, and 1-in-500 years). Coastal flood emerged as the dominant, most rapidly escalating hazard
+        across the portfolio. Calculated Average Annual Loss (AAL) — the probability-weighted expected annual
+        loss, directly comparable to insurance or rental costs — using trapezoidal approximation of the
+        resulting loss-exceedance curves. For one representative asset, modeled coastal flood AAL rose from
+        roughly £2,000 per year in 2020 to over £3,700 per year by 2100, an ~80% increase, illustrating how the
+        methodology captures escalating exposure over time. Delivered asset-level risk flags and investment
+        recommendations in a client-facing technical report.
+      </p>
+
+      <h3 class="block-label">Key Tools &amp; Techniques</h3>
+      <div class="tools">
+        <span class="tool-tag">Python</span>
+        <span class="tool-tag">Climate X API</span>
+        <span class="tool-tag">AAL Modeling</span>
+        <span class="tool-tag">SSP5-8.5 Scenario Analysis</span>
+        <span class="tool-tag">Loss-Exceedance Curves</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: NYC FLOOD RISK -->
+    <div class="project">
+      <div class="eyebrow">Climate Risk · Flood Exposure · Infrastructure Resilience</div>
+      <h2 class="project-title">NYC Flood Risk &amp; Energy Infrastructure Exposure — 2050 Climate Scenario Analysis</h2>
+      <p class="project-meta">GIS Analyst / Project Lead · USC Capstone · December 2025</p>
+
+      <img class="project-image" src="images/nyc-flood-risk.png" alt="NYC Flood Risk Map"
+        onerror="this.outerHTML='<div class=&quot;image-placeholder&quot;>Add screenshot: images/nyc-flood-risk.png</div>'">
+
+      <h3 class="block-label">Impact</h3>
+      <p class="block-text">
+        New York City's energy grid faces growing exposure to coastal flooding as sea levels rise. This project
+        quantified asset-level infrastructure vulnerability by overlaying 2050 FEMA flood inundation and
+        sea-level-rise scenarios with transmission line and power plant datasets, producing decision-relevant
+        insight for urban resilience planning. The output gives utilities and city planners a prioritized
+        sequence for hardening or relocating the highest-exposure substations and transmission assets first,
+        within constrained capital budgets.
+      </p>
+
+      <h3 class="block-label">Approach</h3>
+      <p class="block-text">
+        Used ArcGIS Pro and GeoPandas (Python) to overlay three flooding categories — nuisance, deep/contiguous,
+        and future high tides — against transmission lines and power plants across all five boroughs. Applied
+        NYC Panel on Climate Change 90th percentile projections to assess exposure under a moderate 2050 SLR
+        scenario.
+      </p>
+
+      <h3 class="block-label">Key Tools &amp; Techniques</h3>
+      <div class="tools">
+        <span class="tool-tag">ArcGIS Pro</span>
+        <span class="tool-tag">Python (GeoPandas, Matplotlib)</span>
+        <span class="tool-tag">FEMA Flood Data</span>
+        <span class="tool-tag">NYC Climate Change Projections</span>
+        <span class="tool-tag">ModelBuilder</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: NYC LL97 -->
+    <div class="project">
+      <div class="eyebrow">Building Performance · Emissions Analytics · Regulatory Compliance</div>
+      <h2 class="project-title">NYC Building Emissions Analysis in the Context of Local Law 97</h2>
+      <p class="project-meta">Data Analyst · Enterprise Data Analytics Project, USC · November 2025</p>
+
+
+      <img class="project-image" src="images/nyc-ll97.png" alt="NYC Building Emissions Chart"
+        onerror="this.outerHTML='<div class=&quot;image-placeholder&quot;>Add screenshot: images/nyc-ll97.png<br>(e.g. emissions intensity distribution or property-type comparison chart)</div>'">
+
+      <h3 class="block-label">Impact</h3>
+      <p class="block-text">
+        Buildings account for the largest share of New York City's greenhouse gas emissions, making them the
+        central focus of the city's climate mitigation strategy. Local Law 97 introduces emissions caps for
+        large buildings starting in 2024, tightening through 2030. This project built a repeatable analytics
+        pipeline to identify high-emitting, inefficient buildings that may require targeted intervention ahead
+        of enforcement. The ranked output functions as a retrofit-prioritization tool a portfolio or facilities
+        manager could use to direct limited capital toward the buildings facing the largest compliance exposure
+        first.
+      </p>
+
+      <h3 class="block-label">Approach</h3>
+      <p class="block-text">
+        Ingested NYC building energy and emissions data via the NYC Open Data API, simulating an enterprise
+        regulatory-data workflow. Reduced over 300 raw fields to a focused, decision-ready data mart of
+        identifiers, building characteristics, and core emissions metrics. Calculated emissions intensity (GHG
+        per square foot) as a size-normalized benchmark, then applied a minimum floor-area threshold to isolate
+        operationally meaningful outliers rather than let small buildings skew the ranking. Analyzed distribution
+        and property-type patterns — mixed-use, hotel, and office properties showed the highest and most variable
+        emissions intensity — and designed the pipeline to extend toward automated compliance screening against
+        LL97 thresholds.
+      </p>
+
+      <h3 class="block-label">Key Tools &amp; Techniques</h3>
+      <div class="tools">
+        <span class="tool-tag">Python (pandas, matplotlib, seaborn)</span>
+        <span class="tool-tag">NYC Open Data API</span>
+        <span class="tool-tag">Data Mart Design</span>
+        <span class="tool-tag">Statistical Distribution &amp; Correlation Analysis</span>
+        <span class="tool-tag">LL84/LL97 Regulatory Framework</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 4: NEBRASKA WIND -->
+    <div class="project">
+      <div class="eyebrow">Renewable Energy · Multi-Criteria Analysis · Project Lead</div>
+      <h2 class="project-title">Wind Energy Siting &amp; Feasibility Analysis in Nebraska</h2>
+      <p class="project-meta">GIS Analyst / Project Lead · DOE Collegiate Wind Competition, 2nd Place Nationally · Marshall Energy Business Club · Dec 2025 – Present</p>
+      <p class="project-meta"><a href="https://wind-site-ai.lovable.app/" target="_blank" rel="noopener">View Live Tool — WindSite AI →</a></p>
+
+      <img class="project-image" src="images/nebraska-wind.png" alt="Nebraska Wind Siting Map"
+        onerror="this.outerHTML='<div class=&quot;image-placeholder&quot;>Add screenshot: images/nebraska-wind.png</div>'">
+
+      <h3 class="block-label">Impact</h3>
+      <p class="block-text">
+        Nebraska has significant untapped wind energy potential, but utility-scale development requires
+        navigating competing land use constraints across 93 counties. Beyond the GIS suitability model, this
+        project conducted a full market evaluation of Nebraska as a development target — assessing regulatory
+        environment, transmission infrastructure, interconnection queue dynamics, policy landscape, and
+        permitting timelines — producing an investment recommendation framework used in national competition
+        judging and giving developers a defensible basis for where to option land first.
+      </p>
+
+      <h3 class="block-label">Approach</h3>
+      <p class="block-text">
+        Built WindSite AI, a full-stack geospatial ML platform automating wind farm suitability analysis
+        end-to-end. Ingested five data layers — Global Wind Atlas, HIFLD transmission lines, ESA Sentinel land
+        use/land cover, USGS elevation, and the US Wind Turbine Database — and trained a Random Forest classifier
+        to weight variable importance across all 93 counties, rendering scored suitability maps via Mapbox GL JS.
+        Integrated the Claude API to auto-generate structured site acquisition briefs directly from model
+        outputs, translating suitability scores into county-level briefs covering priority sites, project risk
+        factors, and recommended next steps for development teams.
+      </p>
+
+      <h3 class="block-label">Key Tools &amp; Techniques</h3>
+      <div class="tools">
+        <span class="tool-tag">Python (scikit-learn, ArcPy)</span>
+        <span class="tool-tag">Random Forest Classification</span>
+        <span class="tool-tag">Mapbox GL JS</span>
+        <span class="tool-tag">Claude API</span>
+        <span class="tool-tag">ArcGIS Pro / ModelBuilder</span>
+        <span class="tool-tag">Global Wind Atlas, HIFLD, Sentinel, USGS, USWTDB</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 5: UKRAINE NDVI -->
+    <div class="project">
+      <div class="eyebrow">Food Security · Remote Sensing · Conflict Analysis</div>
+      <h2 class="project-title">Ukraine's Abandoned Farmland Quantified Using Satellite Imagery</h2>
+      <p class="project-meta">Undergraduate Researcher · Conference Presenter · USC Spatial Sciences Institute · Aug 2023 – May 2024</p>
+
+      <img class="project-image" src="images/ukraine-ndvi.png" alt="Ukraine NDVI Analysis"
+        onerror="this.outerHTML='<div class=&quot;image-placeholder&quot;>Add screenshot: images/ukraine-ndvi.png</div>'">
+
+      <h3 class="block-label">Impact</h3>
+      <p class="block-text">
+        Following the 2022 Russian invasion, Ukraine — one of the world's largest grain exporters — faced
+        catastrophic disruption to agricultural production. This research quantified the extent of farmland
+        abandonment using satellite imagery, contributing evidence-based findings to the global conversation on
+        food security. Findings were presented at the 2024 American Association of Geographers Annual Conference
+        and the LA Geospatial Summit.
+      </p>
+
+      <h3 class="block-label">Approach</h3>
+      <p class="block-text">
+        Analyzed multispectral PlanetScope SuperDove imagery using NDVI indices to detect and classify changes in
+        agricultural land use before and after conflict. A six-year NDVI time series (2018–2023) was constructed
+        to distinguish conflict-driven abandonment from seasonal variation across a 93 square mile study area in
+        Kherson, Ukraine.
+      </p>
+
+      <h3 class="block-label">Key Tools &amp; Techniques</h3>
+      <div class="tools">
+        <span class="tool-tag">ArcGIS Pro</span>
+        <span class="tool-tag">PlanetScope Imagery</span>
+        <span class="tool-tag">NDVI Analysis</span>
+        <span class="tool-tag">Raster Change Detection</span>
+        <span class="tool-tag">Time Series Analysis</span>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    Shivi Anand &nbsp;·&nbsp; <a href="mailto:shiviana@usc.edu">shiviana@usc.edu</a> &nbsp;·&nbsp; (714) 732-8421 &nbsp;·&nbsp; New York, NY
+  </footer>
+
+</div>
+
+</body>
+</html>
